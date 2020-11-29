@@ -7,6 +7,7 @@ ARG METABRAINZ_BASE_IMAGE_VERSION
 ARG METABRAINZ_BASE_IMAGE_VARIANT
 ARG METABRAINZ_BASE_IMAGE_TAG
 LABEL org.metabrainz.based-on-image="metabrainz/base-image:${METABRAINZ_BASE_IMAGE_TAG}"
+LABEL org.opencontainers.image.source https://github.com/lidarr/musicbrainz-docker
 
 ARG APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1
 ARG DEBIAN_FRONTEND=noninteractive
