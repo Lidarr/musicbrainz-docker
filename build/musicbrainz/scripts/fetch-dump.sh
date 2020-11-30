@@ -94,9 +94,9 @@ then
 	"${WGET_CMD[@]}" -nd -nH -P "$SEARCH_DUMP_DIR" \
 		"$BASE_FTP_URL/data/search-indexes/LATEST"
 	DUMP_TIMESTAMP=$(cat /media/searchdump/LATEST)
-	"${WGET_CMD[@]}" -nd -nH -r -P "$SEARCH_DUMP_DIR" \
+	"${WGET_CMD[@]}" -nd -nH -r -A "artist.tar.zst,release-group.tar.zst,MD5SUMS" -P "$SEARCH_DUMP_DIR" \
 		"$BASE_FTP_URL/data/search-indexes/$DUMP_TIMESTAMP/"
-	cd "$SEARCH_DUMP_DIR" && md5sum -c MD5SUMS && cd -
+	cd "$SEARCH_DUMP_DIR" && grep -E '(artist|release-group)' MD5SUMS > MD5SUMS_lidarr && md5sum -c MD5SUMS_lidarr && cd -
 	if [[ $TARGET == search ]]
 	then
 		echo 'Done fetching search indexes dump'
