@@ -10,3 +10,7 @@ services:
       - -m
       - sir
       - amqp_watch
+      - --entity-type
+      - artist
+      - --entity-type
+      - release-group
