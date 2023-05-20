@@ -98,6 +98,8 @@ RUN cp docker/yarn_pubkey.txt /tmp/yarn-key.asc && \
     rm -rf /var/lib/apt/lists/*
 
 RUN eval "$(perl -Mlocal::lib)" \
+    # For some reason, build fails here and I can't be bothered to investigate
+    && sed -i 's/== 1.37/== 1.38/' cpanfile \
     && cpanm --installdeps --notest . \
     && cpanm --notest \
         Catalyst::Plugin::Cache::HTTP \
