@@ -36,8 +36,9 @@ jobs:
           Dockerfile: build/postgres/Dockerfile
           tags: |
             latest
-            $(Build.SourceBranchName)
             $(version)
+            $(majorVersion)
+            $(Build.SourceBranchName)
 
       - task: Docker@2
         displayName: Build and push PR image
@@ -65,8 +66,9 @@ jobs:
           Dockerfile: build/musicbrainz/Dockerfile
           tags: |
             latest
-            $(Build.SourceBranchName)
             $(version)
+            $(majorVersion)
+            $(Build.SourceBranchName)
 
       - task: Docker@2
         displayName: Build and push latest image
@@ -94,8 +96,9 @@ jobs:
           Dockerfile: build/rabbitmq/Dockerfile
           tags: |
             latest
-            $(Build.SourceBranchName)
             $(version)
+            $(majorVersion)
+            $(Build.SourceBranchName)
 
       - task: Docker@2
         displayName: Build and push latest image
