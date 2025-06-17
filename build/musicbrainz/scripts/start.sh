@@ -9,5 +9,5 @@ do
     # Sleep first to make sure everything is up before starting replication
     sleep 10m
 
-    carton exec -- /musicbrainz-server/admin/cron/mirror.sh
+    replication.sh
 done
